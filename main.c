@@ -20,13 +20,13 @@ typedef struct
 }sndfile_data;
 
 FLAC__StreamDecoderWriteStatus
-write_callback(  const FLAC__StreamDecoder *dec
-                ,const FLAC__Frame *frame
-                ,const FLAC__int32 * const buffer[]
-                ,void *client_data
-               );
+write_callback      (const FLAC__StreamDecoder *dec
+                    ,const FLAC__Frame *frame
+                    ,const FLAC__int32 * const buffer[]
+                    ,void *client_data
+                    );
 
-void error_callback(const FLAC__StreamDecoder *dec
+void error_callback (const FLAC__StreamDecoder *dec
                     ,FLAC__StreamDecoderErrorStatus status
                     ,void *client_data
                     );
@@ -38,8 +38,8 @@ int main(int argc, const char * argv[])
     FLAC__bool          ret;
     FLAC__StreamDecoder *decoder;
     sndfile_data        data;
-    const char *in_file = argv[1];
-    const char *out_file = argv[2];
+    const char          *in_file = argv[1];
+    const char          *out_file = argv[2];
 
     
     if (argc < 3)
