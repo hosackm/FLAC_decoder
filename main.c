@@ -19,17 +19,22 @@ typedef struct
     SNDFILE     *sf;
 }sndfile_data;
 
+static
 FLAC__StreamDecoderWriteStatus
-write_callback      (const FLAC__StreamDecoder *dec
-                    ,const FLAC__Frame *frame
-                    ,const FLAC__int32 * const buffer[]
-                    ,void *client_data
-                    );
+write_callback
+    (const FLAC__StreamDecoder *dec
+    ,const FLAC__Frame *frame
+    ,const FLAC__int32 * const buffer[]
+    ,void *client_data
+    );
 
-void error_callback (const FLAC__StreamDecoder *dec
-                    ,FLAC__StreamDecoderErrorStatus status
-                    ,void *client_data
-                    );
+static void
+error_callback
+    (const FLAC__StreamDecoder *dec
+    ,FLAC__StreamDecoderErrorStatus status
+    ,void *client_data
+    );
+
 
 int main(int argc, const char * argv[])
 {
@@ -121,11 +126,14 @@ int main(int argc, const char * argv[])
     return 0;
 }
 
+
+static
 FLAC__StreamDecoderWriteStatus
-write_callback( const FLAC__StreamDecoder *dec
-               ,const FLAC__Frame *frame
-               ,const FLAC__int32 * const buffer[]
-               ,void *client_data)
+write_callback
+    (const FLAC__StreamDecoder *dec
+    ,const FLAC__Frame *frame
+    ,const FLAC__int32 * const buffer[]
+    ,void *client_data)
 {
     FLAC__int16         *p_samples;         /* Buffer for holding interleaved samples */
     unsigned int        sample_idx;         /* Index of the current sample we are on  */
@@ -164,9 +172,12 @@ write_callback( const FLAC__StreamDecoder *dec
     return FLAC__STREAM_DECODER_WRITE_STATUS_CONTINUE;
 }
 
-void error_callback(const FLAC__StreamDecoder *dec
-                    ,FLAC__StreamDecoderErrorStatus status
-                    ,void *client_data)
+
+static void
+error_callback
+    (const FLAC__StreamDecoder *dec
+    ,FLAC__StreamDecoderErrorStatus status
+    ,void *client_data)
 {
     sndfile_data *d = (sndfile_data *)client_data;
     printf("'Error Callback' called while decoding\
