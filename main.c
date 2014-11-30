@@ -148,7 +148,7 @@ write_callback( const FLAC__StreamDecoder *dec
     {
         for(channel_idx = 0; channel_idx < channels; ++channel_idx)
         {
-            *p_samples++ = /*(FLAC__int16)*/ buffer[channel_idx][sample_idx] ;
+            *p_samples++ = buffer[channel_idx][sample_idx] ;
         }
     }
     
