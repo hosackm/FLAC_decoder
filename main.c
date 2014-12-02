@@ -138,7 +138,7 @@ write_callback
     FLAC__int16         *p_samples;         /* Buffer for holding interleaved samples */
     unsigned int        sample_idx;         /* Index of the current sample we are on  */
     unsigned int        channel_idx;        /* Index of the current channel we are on */
-    sndfile_data      *data       = (sndfile_data*)client_data; /* Cast data provided by libFLAC */
+    sndfile_data        *data       = (sndfile_data*)client_data;   /* Cast data provided by libFLAC */
     const unsigned int  channels    = frame->header.channels;       /* Number of channels decoded by libFLAC */
     const unsigned int  blocksize   = frame->header.blocksize;      /*  Number of samples decoded by libFLAC.
                                                                     *   Each sample contains a Left and Right channel

@@ -22,4 +22,4 @@ and make sure their header files are in your search path.
 
 
 ####Limitations
-* For now, it is assumed the output file is 2 channels and the input file is 44100 Hz sample rate.
+* The file is assumed to be a stereo 16 bit 44.1 kHz sample rate signal
